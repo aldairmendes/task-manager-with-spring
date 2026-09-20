@@ -4,7 +4,7 @@ API REST desenvolvida em Spring Boot para gestao de tarefas com autenticacao JWT
 
 ## Tecnologias
 
-- Java 17+
+- Java 21+
 - Spring Boot
 - Spring Security (JWT)
 - Spring Data JPA
@@ -13,7 +13,7 @@ API REST desenvolvida em Spring Boot para gestao de tarefas com autenticacao JWT
 
 ## Pre-requisitos
 
-- Java JDK 17 ou superior instalado.
+- Java JDK 21 ou superior instalado.
 - Servidor MySQL a correr.
 
 ## Configuracao do Ambiente

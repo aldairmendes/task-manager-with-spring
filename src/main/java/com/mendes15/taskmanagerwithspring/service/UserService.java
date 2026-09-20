@@ -5,6 +5,7 @@ import com.mendes15.taskmanagerwithspring.dto.UserResponseDTO;
 import com.mendes15.taskmanagerwithspring.model.User;
 import com.mendes15.taskmanagerwithspring.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,8 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    PasswordEncoder encoder;
 
     public UserResponseDTO createUser(UserRequestDTO requestDTO) {
         User user = new User();
@@ -44,7 +47,7 @@ public class UserService {
 
         user.setUsername(requestDTO.getUsername());
         user.setEmail(requestDTO.getEmail());
-        user.setPassword(requestDTO.getPassword());
+        user.setPassword(encoder.encode(requestDTO.getPassword()));
 
         User updatedUser = userRepository.save(user);
         return toResponseDTO(updatedUser);
